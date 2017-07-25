@@ -5,7 +5,7 @@
 
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.fx.spring.ModelFx.Partner" %>
+<%@ page import="com.fx.spring.Entity.Partner" %>
 <%@ page import="java.math.BigDecimal" %>
 <html>
 <head>

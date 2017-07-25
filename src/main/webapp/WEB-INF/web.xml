@@ -10,6 +10,16 @@
   <!--</welcome-file-list>-->
 
   <!-- Spring MVC Configs -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+          /WEB-INF/applicationContext.xml
+    </param-value>
+  </context-param>
 
   <!-- Step 1: Configure Spring MVC Dispatcher Servlet -->
   <servlet>

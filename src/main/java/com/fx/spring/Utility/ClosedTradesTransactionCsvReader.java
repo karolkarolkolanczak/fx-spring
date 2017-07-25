@@ -1,8 +1,6 @@
 package com.fx.spring.Utility;
 
-import com.fx.spring.ModelFx.ClosedTradesTransaction;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy1;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy2;
+import com.fx.spring.Entity.ClosedTradesTransaction;
 import com.opencsv.CSVReader;
 
 import java.io.FileReader;

@@ -1,16 +1,16 @@
 package com.fx.spring.Utility;
 
-import com.fx.spring.ModelFx.ClosedTradesTransaction;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy1;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy2;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy3;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy4;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy5;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy6;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy7;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy8;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy9;
-import com.fx.spring.ModelFx.ClosedTradesTransactionStrategy10;
+import com.fx.spring.Entity.ClosedTradesTransaction;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy1;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy2;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy3;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy4;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy5;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy6;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy7;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy8;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy9;
+import com.fx.spring.Entity.ClosedTradesTransactionStrategy10;
 
 import java.util.ArrayList;
 import java.util.List;

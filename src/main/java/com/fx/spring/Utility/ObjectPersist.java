@@ -1,8 +1,8 @@
 package com.fx.spring.Utility;
 
-import com.fx.spring.ModelFx.ClosedTradesTransaction;
-import com.fx.spring.ModelFx.Partner;
-import com.fx.spring.ModelFx.User;
+import com.fx.spring.Entity.ClosedTradesTransaction;
+import com.fx.spring.Entity.Partner;
+import com.fx.spring.Entity.User;
 
 
 import javax.persistence.*;

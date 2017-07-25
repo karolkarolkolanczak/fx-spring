@@ -1,6 +1,6 @@
 package com.fx.spring.Utility;
 
-import com.fx.spring.ModelFx.Partner;
+import com.fx.spring.Entity.Partner;
 
 import java.util.ArrayList;
 import java.util.List;

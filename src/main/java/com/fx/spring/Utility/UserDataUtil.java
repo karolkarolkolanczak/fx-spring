@@ -1,6 +1,6 @@
 package com.fx.spring.Utility;
 
-import com.fx.spring.ModelFx.User;
+import com.fx.spring.Entity.User;
 
 import java.util.ArrayList;
 import java.util.List;

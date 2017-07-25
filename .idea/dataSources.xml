@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="fxdatabase@localhost" uuid="3a45c10e-dab7-451e-88a7-bb68eb901855">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/fxdatabase</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
+    </data-source>
+  </component>
+</project>

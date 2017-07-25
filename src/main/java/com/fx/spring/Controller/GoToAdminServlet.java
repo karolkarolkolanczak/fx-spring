@@ -1,6 +1,6 @@
 package com.fx.spring.Controller;
 
-import com.fx.spring.ModelFx.Partner;
+import com.fx.spring.Entity.Partner;
 import com.fx.spring.Utility.ObjectPersist;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
