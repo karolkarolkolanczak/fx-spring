@@ -39,4 +39,11 @@ public class PartnerController {
         partnerDAO.updatePartner(partner);
         return "editPartner";
     }
+
+    @RequestMapping(value="/deletePartner", method = RequestMethod.GET)
+    String deletePartner(@RequestParam("parameterPartnerId")int parameterPartnerId){
+        partnerDAO.deletePartnerById(parameterPartnerId);
+        return "redirect:admin";
+    }
+//    @ModelAttribute("partner")Partner partner
 }

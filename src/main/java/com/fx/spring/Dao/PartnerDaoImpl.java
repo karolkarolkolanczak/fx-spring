@@ -51,9 +51,10 @@ public class PartnerDaoImpl implements PartnerDAO {
 
     @Override
     @Transactional
-    public void deletePartnerById(int PartnerId) {
+    public void deletePartnerById(int partnerId) {
         session=sessionFactory.getCurrentSession();
-
+        Partner partner=session.get(Partner.class,partnerId);
+        session.delete(partner);
     }
 
     @Override
