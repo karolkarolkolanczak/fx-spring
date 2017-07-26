@@ -1,39 +1,4 @@
-<%@taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
-<%--<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>--%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.fx.spring.Entity.Partner" %>
-<%@ page import="java.math.BigDecimal" %>
-<html>
-<head>
-    <!--  bootstrap -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap-grid.min.css" rel="stylesheet">
-    <link href="css/bootstrap-reboot.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <!-- head koniec  bootstrap -->
-
-    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>--%>
-    <%--<script>--%>
-        <%--$(document).ready(function() {--%>
-            <%--var reloadData = 0; // store timer--%>
-
-            <%--// load data on page load, which sets timeout to reload again--%>
-            <%--setInterval( "updateShouts()", 5000 );--%>
-        <%--});--%>
-
-        <%--function updateShouts(){--%>
-            <%--// Assuming we have #shoutbox--%>
-            <%--$('#load_me').load('admin.jsp');--%>
-        <%--}--%>
-    <%--</script>--%>
-</head>
-<body>
+<%@include file="/WEB-INF/view/template/header.jsp"%>
 <jsp:include page="/QuotesData" />
 <%--<%User user=(User)session.getAttribute("userSessionData");%>--%>
 
@@ -56,35 +21,35 @@
     <div class="row"></div>
 
     <div class ="col-lg-offset-0 col-lg-5">
-        <form class="form-horizontal" action="AddParnterServlet" method="get">
+        <form:form class="form-horizontal" action="addPartner" modelAttribute="partner" method="post">
             <div class="form-group">
                 <label for="firstName" class="col-sm-3 control-label">First Name</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="firstName" name="firstName" value="Adam">
+                    <form:input path="firstName" id="firstName" class="form-control" value="${partner.firstName}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="lastName" class="col-sm-3 control-label">Last Name</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="lastName" name="lastName" value="Kowalski">
+                    <form:input path="lastName" id="lastName" class="form-control" value="${partner.lastName}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="login" class="col-sm-3 control-label">Login</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="login" name="login" value="123">
+                    <form:input path="login" id="login" class="form-control" value="${partner.login}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="password" name="password" value="123">
+                    <form:input path="password" id="password" class="form-control" value="${partner.password}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="email" class="col-sm-3 control-label">Email</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="email" name="email" value="123@wp.pl">
+                    <form:input path="email" id="email" class="form-control" value="${partner.email}"/>
                 </div>
             </div>
             <div class="form-group">
@@ -109,7 +74,7 @@
                     <button type="submit" class="btn btn-default">Add new Partner</button>
                 </div>
             </div>
-        </form>
+        </form:form>
     </div>
 
     <%--<div class ="col-lg-offset-3 col-lg-2 ">--%>
@@ -163,39 +128,39 @@
     <hr>
 
     <h4><b>Table of Partners:</b></h4> </br>
-    <%--<div class ="col-sm-6 ">--%>
-    <%--<table class="table table-striped col-sm-6 ">--%>
-        <%--<tr>--%>
-            <%--<th>Partner Id</th>--%>
-            <%--<th>First name</th>--%>
-            <%--<th>Last name</th>--%>
-            <%--<th>Login</th>--%>
-            <%--<th>Password</th>--%>
-            <%--<th>Email</th>--%>
-            <%--<th>Strategy</th>--%>
-            <%--<th></th>--%>
-            <%--<th></th>--%>
-            <%--<th></th>--%>
-        <%--</tr>--%>
+    <div class ="col-sm-6 ">
+    <table class="table table-striped col-sm-6 ">
+        <tr>
+            <th>Partner Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Login</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Strategy</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
 
-        <%--<c:forEach var="value" items="${listOfAllPartners}">--%>
-        <%--<tr>--%>
-            <%--<td><c:out value="${value.partnerId}" /></td>--%>
-            <%--<td><c:out value="${value.firstName}" /></td>--%>
-            <%--<td><c:out value="${value.lastName}" /></td>--%>
-            <%--<td><c:out value="${value.login}" /></td>--%>
-            <%--<td><c:out value="${value.password}" /></td>--%>
-            <%--<td><c:out value="${value.email}" /></td>--%>
-            <%--<td><c:out value="${value.closedTradesTransactionStrategyNumber}" /></td>--%>
-            <%--<td><a href="EditParnterServlet?parameterPartnerId=<c:out value='${value.partnerId}'/>"> edit </a></td>--%>
-            <%--<td><a href="DetailsPartnerServlet?parameterPartnerId=<c:out value='${value.partnerId}'/>"> details </a></td>--%>
-            <%--<td><a href="DeletePartnerServlet?parameterPartnerId=<c:out value='${value.partnerId}'/>"> <svg id="icon-delete" fill="red" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>--%>
-            <%--</a></td>--%>
-        <%--</tr>--%>
-        <%--</c:forEach>--%>
+        <c:forEach var="value" items="${listOfAllPartners}">
+        <tr>
+            <td><c:out value="${value.partnerId}" /></td>
+            <td><c:out value="${value.firstName}" /></td>
+            <td><c:out value="${value.lastName}" /></td>
+            <td><c:out value="${value.login}" /></td>
+            <td><c:out value="${value.password}" /></td>
+            <td><c:out value="${value.email}" /></td>
+            <td><c:out value="${value.closedTradesTransactionStrategyNumber}" /></td>
+            <td><a href="editPartner?parameterPartnerId=<c:out value='${value.partnerId}'/>"> edit </a></td>
+            <td><a href="DetailsPartnerServlet?parameterPartnerId=<c:out value='${value.partnerId}'/>"> details </a></td>
+            <td><a href="DeletePartnerServlet?parameterPartnerId=<c:out value='${value.partnerId}'/>"> <svg id="icon-delete" fill="red" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+            </a></td>
+        </tr>
+        </c:forEach>
 
-    <%--</table>--%>
-    <%--</div>--%>
+    </table>
+    </div>
 </br></br>
 
 </div>
@@ -205,12 +170,10 @@
 <p hidden ><svg id="icon-down" fill="red" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg></p>
 <p hidden ><svg id="icon-delete" fill="red" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/><path d="M0 0h24v24H0z" fill="none"/></svg></p>
 
-<!-- body bootstrap + jquery-->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- koniec body bootstrap + jquery-->
-</body>
-</html>
+
+Login: ${user.login} Pass: ${user.password}
+
+<%@include file="/WEB-INF/view/template/footer.jsp" %>
 
 
 <%--<%--%>

@@ -30,14 +30,17 @@ public class UserDAOImpl implements UserDAO {
     private SessionFactory sessionFactory;
     Session session;
 
+    public UserDAOImpl() {
+    }
+
     @Override
     @Transactional
-    public List<User> getAllUsers() {
+    public List<User> getListOfAllUsers() {
         session = sessionFactory.getCurrentSession();
 
         List<User> listOfAllUsers=new ArrayList<>();
 
-        listOfAllUsers=session.createQuery("from User",User.class).getResultList();
+        listOfAllUsers=(ArrayList<User>) session.createQuery("from User",User.class).getResultList();
 
         return listOfAllUsers;
     }

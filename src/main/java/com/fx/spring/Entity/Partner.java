@@ -96,4 +96,19 @@ public class Partner {
 //    public void setJoinedDate(Date joinedDate) {
 //        this.joinedDate = joinedDate;
 //    }
+
+    @Override
+    public String toString() {
+        return "Partner{" +
+                "partnerId=" + partnerId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", joinedDate=" + joinedDate +
+                ", closedTradesTransactionStrategyNumber=" + closedTradesTransactionStrategyNumber +
+                ", totalBonusForPeriod=" + totalBonusForPeriod +
+                '}';
+    }
 }
