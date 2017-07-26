@@ -63,6 +63,13 @@
                     <button type="submit" class="btn btn-default">Save Partner</button>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-sm-5">
+                        <%--<input type="hidden" class="form-control" id="partnerId" name="partnerId" value="<c:out value="${partnerDetails.partnerId}" />" >--%>
+                    <form:input path="closedTradesTransactionStrategyNumber" id="closedTradesTransactionStrategyNumber" class="form-control" value="${partner.closedTradesTransactionStrategyNumber}" type="hidden"/>
+                </div>
+            </div>
+
         </form:form>
     </div>
 
