@@ -45,5 +45,4 @@ public class PartnerController {
         partnerDAO.deletePartnerById(parameterPartnerId);
         return "redirect:admin";
     }
-//    @ModelAttribute("partner")Partner partner
 }

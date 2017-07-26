@@ -55,18 +55,18 @@
             <div class="form-group">
                 <label for="transactionStrategy" class="col-sm-3 control-label">Transaction Strategy</label>
                 <div class="col-sm-5">
-                    <select class="form-control" id="transactionStrategy" name="transactionStrategy">
-                        <option value="1">Strategy 1</option>
-                        <option value="2">Strategy 2</option>
-                        <option value="3">Strategy 3</option>
-                        <option value="4">Strategy 4</option>
-                        <option value="5">Strategy 5</option>
-                        <option value="6">Strategy 6</option>
-                        <option value="7">Strategy 7</option>
-                        <option value="8">Strategy 8</option>
-                        <option value="9">Strategy 9</option>
-                        <option value="10">Strategy 10</option>
-                    </select>
+                    <form:select path="closedTradesTransactionStrategyNumber" class="form-control" id="transactionStrategy" name="transactionStrategy">
+                        <form:option value="1">Strategy 1</form:option>
+                        <form:option value="2">Strategy 2</form:option>
+                        <form:option value="3">Strategy 3</form:option>
+                        <form:option value="4">Strategy 4</form:option>
+                        <form:option value="5">Strategy 5</form:option>
+                        <form:option value="6">Strategy 6</form:option>
+                        <form:option value="7">Strategy 7</form:option>
+                        <form:option value="8">Strategy 8</form:option>
+                        <form:option value="9">Strategy 9</form:option>
+                        <form:option value="10">Strategy 10</form:option>
+                    </form:select>
                 </div>
             </div>
             <div class="form-group">
@@ -77,50 +77,50 @@
         </form:form>
     </div>
 
-    <%--<div class ="col-lg-offset-3 col-lg-2 ">--%>
-        <%--<table class="table table-striped col-sm-3 " >--%>
-            <%--<tr>--%>
-                <%--<th>Symbol</th>--%>
-                <%--<th>Bid</th>--%>
-                <%--<th>Ask</th>--%>
-                <%--<th>Change</th>--%>
-                <%--<th></th>--%>
-            <%--</tr>--%>
-            <%--<c:forEach var="value" items="${listOfQuotes}">--%>
-                <%--<tr>--%>
-                    <%--<td><c:out value="${value.symbol}" /></td>--%>
-                    <%--<c:if test="${value.change >= 0.0001}">--%>
-                        <%--<td class="greenColor">--%>
-                            <%--<c:out value="${value.bid}" /></td>--%>
-                    <%--</c:if>--%>
-                    <%--<c:if test="${value.change <= -0.0001}">--%>
-                        <%--<td class="redColor"><c:out value="${value.bid}" /></td>--%>
-                    <%--</c:if>--%>
-                    <%--<c:if test="${value.change >= 0.0001}">--%>
-                        <%--<td class="greenColor"><c:out value="${value.ask}" /></td>--%>
-                    <%--</c:if>--%>
-                    <%--<c:if test="${value.change <= -0.0001}">--%>
-                        <%--<td class="redColor"><c:out value="${value.ask}" /></td>--%>
-                    <%--</c:if>--%>
-                    <%--<c:if test="${value.change >= 0.0001}">--%>
-                        <%--<td class="greenColor"><c:out value="${value.change}" /></td>--%>
-                    <%--</c:if>--%>
-                    <%--<c:if test="${value.change <= -0.0001}">--%>
-                        <%--<td class="redColor"><c:out value="${value.change}"/></td>--%>
-                    <%--</c:if>--%>
-                    <%--<c:if test="${value.change >= 0.0001}">--%>
-                        <%--<td>--%>
-                            <%--<svg id="icon-up" fill="green" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>--%>
-                        <%--</td>--%>
-                    <%--</c:if>--%>
-                    <%--<c:if test="${value.change <= -0.0001}">--%>
-                        <%--<td>--%>
-                            <%--<svg id="icon-down" fill="red" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>--%>
-                        <%--</td>--%>
-                    <%--</c:if>--%>
-                <%--</tr>--%>
-            <%--</c:forEach>--%>
-        <%--</table>--%>
+    <div class ="col-lg-offset-3 col-lg-2 ">
+        <table class="table table-striped col-sm-3 " >
+            <tr>
+                <th>Symbol</th>
+                <th>Bid</th>
+                <th>Ask</th>
+                <th>Change</th>
+                <th></th>
+            </tr>
+            <c:forEach var="value" items="${listOfQuotes}">
+                <tr>
+                    <td><c:out value="${value.symbol}" /></td>
+                    <c:if test="${value.change >= 0.0001}">
+                        <td class="greenColor">
+                            <c:out value="${value.bid}" /></td>
+                    </c:if>
+                    <c:if test="${value.change <= -0.0001}">
+                        <td class="redColor"><c:out value="${value.bid}" /></td>
+                    </c:if>
+                    <c:if test="${value.change >= 0.0001}">
+                        <td class="greenColor"><c:out value="${value.ask}" /></td>
+                    </c:if>
+                    <c:if test="${value.change <= -0.0001}">
+                        <td class="redColor"><c:out value="${value.ask}" /></td>
+                    </c:if>
+                    <c:if test="${value.change >= 0.0001}">
+                        <td class="greenColor"><c:out value="${value.change}" /></td>
+                    </c:if>
+                    <c:if test="${value.change <= -0.0001}">
+                        <td class="redColor"><c:out value="${value.change}"/></td>
+                    </c:if>
+                    <c:if test="${value.change >= 0.0001}">
+                        <td>
+                            <svg id="icon-up" fill="green" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+                        </td>
+                    </c:if>
+                    <c:if test="${value.change <= -0.0001}">
+                        <td>
+                            <svg id="icon-down" fill="red" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
+                        </td>
+                    </c:if>
+                </tr>
+            </c:forEach>
+        </table>
     <h6>*source: <a href="https://www.instaforex.com" target="_blank" >https://www.instaforex.com</a></h6>
     </div>
     <div class="row"></div>
@@ -174,34 +174,3 @@
 Login: ${user.login} Pass: ${user.password}
 
 <%@include file="/WEB-INF/view/template/footer.jsp" %>
-
-
-<%--<%--%>
-<%--List<Partner> listOfPartners = ((List<Partner>) session.getAttribute("listOfPartners"));--%>
-<%--%>--%>
-
-<%--&lt;%&ndash;LIST OF PARTNERS:</br></br>&ndash;%&gt;--%>
-
-<%--<table border="1">--%>
-<%--<tr>--%>
-<%--<th>First name</th>--%>
-<%--<th>Last name</th>--%>
-<%--&lt;%&ndash;<th>Login</th>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<th>Password</th>&ndash;%&gt;--%>
-<%--<th>Email</th>--%>
-<%--<th></th>--%>
-<%--<th></th>--%>
-<%--</tr>--%>
-<%--<% for(int i = 0; i < listOfPartners.size(); i++) { %>--%>
-<%--<tr>--%>
-<%--&lt;%&ndash;<td><%=listOfPartners.get(i).getFirstName()%></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<td><%=listOfPartners.get(i).getLastName()%></td>&ndash;%&gt;--%>
-<%--<td><%=listOfPartners.get(i).getLogin()%></td>--%>
-<%--<td><%=listOfPartners.get(i).getPassword()%></td>--%>
-<%--&lt;%&ndash;<td><%=listOfPartners.get(i).getEmail()%></td>&ndash;%&gt;--%>
-<%--<td>view details</td>--%>
-<%--<td>delete</td>--%>
-<%--</tr>--%>
-<%--<% } %>--%>
-
-<%--</table>--%>
