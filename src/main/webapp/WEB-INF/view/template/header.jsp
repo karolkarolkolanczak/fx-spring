@@ -18,8 +18,8 @@
     <link href="/resources/css/bootstrap-reboot.min.css" rel="stylesheet">
     <%--<link href="/resources/css/bootstrap.min.css" rel="stylesheet">--%>
     <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
-    <link href="/resources/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="/resources/css/style.css" rel="stylesheet">
+    <link href="<c:url value="/resources/css/bootstrap-theme.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     <!-- head koniec  bootstrap -->
 
 <body>

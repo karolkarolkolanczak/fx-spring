@@ -1,11 +1,12 @@
 package com.fx.spring.Controller;
 
 import com.fx.spring.Dao.PartnerDAO;
+import com.fx.spring.Dao.PartnerDaoImpl;
 import com.fx.spring.Dao.UserDAO;
-import com.fx.spring.Dao.UserDAOImpl;
-import com.fx.spring.Entity.Partner;
+import com.fx.spring.Entity.ClosedTradesTransaction;
 import com.fx.spring.Entity.User;
-import com.fx.spring.Utility.Connection;
+import com.fx.spring.Utility.ClosedTradesTransactionCsvReader;
+import com.fx.spring.Utility.StrategyChooser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
 //import java.util.ArrayList;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,7 +31,9 @@ public class LoginController {
     private UserDAO userDAO;
     @Autowired
     private PartnerDAO partnerDAO;
+    PartnerDaoImpl partnerDaoImpl;
     User user;
+    List<ClosedTradesTransaction> closedTradesTransactionslist;
 //    ArrayList<User>listOfAllUsers;
 //    ArrayList<Partner>listOfAllPartners;
     Boolean isLogged;
@@ -38,6 +43,9 @@ public class LoginController {
 //        listOfAllUsers=new ArrayList<>();
 //        listOfAllPartners=new ArrayList<>();
         isLogged=false;
+        closedTradesTransactionslist=new ArrayList<>();
+        partnerDaoImpl=new PartnerDaoImpl();
+init();
     }
 
     @RequestMapping(value="/login", method = RequestMethod.GET)
@@ -48,7 +56,7 @@ public class LoginController {
 //        listOfAllUsers=userDAO.getListOfAllUsers();
 //        listOfAllPartners=partnerDAO.getListOfAllPartners();
         model.addAttribute("user", user);
-
+//        init();
         return "login";
     }
 
@@ -62,6 +70,7 @@ public class LoginController {
 //            for(User value:listOfAllUsers){
 //                System.out.println("1 user: "+value.getUserId()+" "+value.getLogin());
 //            }
+
             return "redirect:admin";
         }
         else{
@@ -83,5 +92,37 @@ public class LoginController {
             }
         }
         return isLogged;
+    }
+
+    public void init(){
+//        List<String> listOfClosedTradesStrategiesResources=new ArrayList<>();
+        List<ClosedTradesTransaction> listOfClosedTradesStrategies=new ArrayList<>();
+
+        StrategyChooser strategyChooser=new StrategyChooser();
+
+//        listOfClosedTradesStrategiesResources=strategyChooser.getListOfClosedTradesStrategiesResources();
+        listOfClosedTradesStrategies=strategyChooser.getListOfClosedTradesStrategies();
+
+
+        for(int i=0;i<listOfClosedTradesStrategies.size();i++){
+            if (partnerDaoImpl.getClosedTradesTransactionslist(listOfClosedTradesStrategies.get(i)).size()==0){
+                try {
+                    ClosedTradesTransactionCsvReader closedTradesTransactionCsvReader=new ClosedTradesTransactionCsvReader();
+                    closedTradesTransactionslist=closedTradesTransactionCsvReader.getClosedTradesTransactionslist(listOfClosedTradesStrategies.get(i));
+
+                    partnerDaoImpl.addclosedTradesTransactionslist(closedTradesTransactionslist);
+
+                    for(ClosedTradesTransaction value: closedTradesTransactionslist){
+                        System.out.println(value.getTransactionId()+" "+value.getSymbol()+" "+value.getProfit());
+                    }
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            else return;
+        }
     }
 }

@@ -7,10 +7,9 @@
             <%--Welcome Admin: '<b><%=user.getLogin()%></b>'</br>--%>
         </div>
         <div style="position:absolute; top:30px; right:10px" >
-            <form action="LogOutServlet" method="get">
+            <form:form action="LogOut" method="get">
                 <button type="submit" class="btn btn-default">log out</button>
-                <%--<input type="submit" value="log out">--%>
-            </form>
+            </form:form>
         </div>
         <div style="margin: 20px">
             <h2>ADMINISTRATOR PANEL</h2>

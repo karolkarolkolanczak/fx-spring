@@ -21,6 +21,10 @@ public class Partner {
     @Transient
     //@Digits(integer=9, fraction=2)
     private float totalBonusForPeriod;
+    @Transient
+    private String closedTradesFrom;
+    @Transient
+    private String closedTradesTo;
 
     public Partner() {
     }
@@ -79,6 +83,22 @@ public class Partner {
 
     public void setClosedTradesTransactionStrategyNumber(int closedTradesTransactionStrategyNumber) {
         this.closedTradesTransactionStrategyNumber = closedTradesTransactionStrategyNumber;
+    }
+
+    public String getClosedTradesFrom() {
+        return closedTradesFrom;
+    }
+
+    public void setClosedTradesFrom(String closedTradesFrom) {
+        this.closedTradesFrom = closedTradesFrom;
+    }
+
+    public String getClosedTradesTo() {
+        return closedTradesTo;
+    }
+
+    public void setClosedTradesTo(String closedTradesTo) {
+        this.closedTradesTo = closedTradesTo;
     }
 
     public float getTotalBonusForPeriod() {
