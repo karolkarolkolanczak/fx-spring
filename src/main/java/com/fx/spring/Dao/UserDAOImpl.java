@@ -18,13 +18,11 @@ import java.util.List;
 @Repository
 public class UserDAOImpl implements UserDAO {
 
-
 // old way
 //    SessionFactory sessionFactory = new Configuration()
 //            .configure("hibernate.cfg.xml")
 //            .addAnnotatedClass(User.class)
 //            .buildSessionFactory();
-
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -37,11 +35,8 @@ public class UserDAOImpl implements UserDAO {
     @Transactional
     public List<User> getListOfAllUsers() {
         session = sessionFactory.getCurrentSession();
-
         List<User> listOfAllUsers=new ArrayList<>();
-
         listOfAllUsers=(ArrayList<User>) session.createQuery("from User",User.class).getResultList();
-
         return listOfAllUsers;
     }
 }

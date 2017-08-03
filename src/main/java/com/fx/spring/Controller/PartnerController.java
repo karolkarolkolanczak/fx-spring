@@ -37,7 +37,6 @@ public class PartnerController {
     float totalLotsTurnoverForPeriod;
 
     public PartnerController() {
-
         strategyChooser=new StrategyChooser();
     }
 
@@ -69,73 +68,42 @@ public class PartnerController {
 
     @RequestMapping(value="/detailsPartner",method=RequestMethod.GET)
     String detailsPartner(@RequestParam("parameterPartnerId")int parameterPartnerId, Model model) {
-//        String closedTradesFrom="2017/01/01";
-//        String closedTradesTo="2017/06/30";
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-//        Date closedTradesFrom = format.parse(dateFrom);
-//        Date closedTradesTo = format.parse(dateTo);
-
         Partner partner=new Partner();
         PartnerDataUtil partnerDataUtil=new PartnerDataUtil();
-
         List<ClosedTradesTransaction> closedTradesTransactionslist=new ArrayList<>();
         String className=partner.getClass().getSimpleName().toLowerCase();
-
         partner=partnerDAO.getPartnerById(parameterPartnerId);
         partnerDataUtil.setClosedTradesFrom("2017-01-01");
         partnerDataUtil.setClosedTradesTo("2017-06-30");
         closedTradesTransactionslist=  partnerDAO.getClosedTradesTransactionslistFiltered(strategyChooser.getClosedTradesStrategyNewObjectByChosenStrategyNumber(partner.getClosedTradesTransactionStrategyNumber()),partnerDataUtil.getClosedTradesFrom(),partnerDataUtil.getClosedTradesTo());
-        //        W przypadku pary walutowej EURUSD stawka bonusowa dla Partnera wynosi 16 USD za 1 Lota. Zatem za dany okres Partner otrzyma: USD 16 * 3,84 Lota = USD 61.44 .
-
         totalLotsTurnoverForPeriod=0;
         float totalLotsTurnoverForPeriod=sum(closedTradesTransactionslist);
         float totalBonusForPeriod=16 *totalLotsTurnoverForPeriod;
-//        model.addAttribute("closedTradesFrom",closedTradesFrom);
-//        model.addAttribute("closedTradesTo",closedTradesTo);
-
         model.addAttribute("closedTradesTransactionslist", closedTradesTransactionslist);
         model.addAttribute("totalLotsTurnoverForPeriod",totalLotsTurnoverForPeriod);
         model.addAttribute("totalBonusForPeriod",totalBonusForPeriod);
         model.addAttribute("partner",partner);
         model.addAttribute("partnerDataUtil", partnerDataUtil);
-
         return "partnerDetails";
     }
 
     @RequestMapping(value="/detailsPartnerFilter", method = RequestMethod.POST)
     String detailsPartnerFilter(@ModelAttribute("partnerDataUtil")PartnerDataUtil partnerDataUtil,Model model) {
-
         List<ClosedTradesTransaction> closedTradesTransactionslist=new ArrayList<>();
         Partner partner=new Partner();
-
         partner=partnerDAO.getPartnerById(partnerDataUtil.getPartnerId());
-//        partner.setClosedTradesFrom(partnerDataUtil.getClosedTradesFrom());
-//        partner.setClosedTradesTo(partnerDataUtil.getClosedTradesTo());
-
         closedTradesTransactionslist=  partnerDAO.getClosedTradesTransactionslistFiltered(strategyChooser.getClosedTradesStrategyNewObjectByChosenStrategyNumber(partner.getClosedTradesTransactionStrategyNumber()),partnerDataUtil.getClosedTradesFrom(),partnerDataUtil.getClosedTradesTo());
         //        W przypadku pary walutowej EURUSD stawka bonusowa dla Partnera wynosi 16 USD za 1 Lota. Zatem za dany okres Partner otrzyma: USD 16 * 3,84 Lota = USD 61.44 .
-
         totalLotsTurnoverForPeriod=0;
         float totalLotsTurnoverForPeriod=sum(closedTradesTransactionslist);
         float totalBonusForPeriod=16 *totalLotsTurnoverForPeriod;
-//        model.addAttribute("closedTradesFrom",closedTradesFrom);
-//        model.addAttribute("closedTradesTo",closedTradesTo);
-//        PartnerDataUtil partnerDataUtil=new PartnerDataUtil();
         model.addAttribute("closedTradesTransactionslist", closedTradesTransactionslist);
         model.addAttribute("totalLotsTurnoverForPeriod",totalLotsTurnoverForPeriod);
         model.addAttribute("totalBonusForPeriod",totalBonusForPeriod);
         model.addAttribute("partner",partner);
         model.addAttribute("partnerDataUtil", partnerDataUtil);
-
-
         return "partnerDetails";
     }
-
-//    @RequestMapping(value = "/addPartner", method = RequestMethod.POST)
-//    String addPartnerForm(@ModelAttribute("partner")Partner partner) {
-//        partnerDAO.addPartner(partner);
-//        return "redirect:admin";
-//    }
 
     float sum(List<ClosedTradesTransaction> closedTradesTransactionslist){
         for(int i=0;i<closedTradesTransactionslist.size();i++){
@@ -143,5 +111,4 @@ public class PartnerController {
         }
         return totalLotsTurnoverForPeriod;
     }
-
 }

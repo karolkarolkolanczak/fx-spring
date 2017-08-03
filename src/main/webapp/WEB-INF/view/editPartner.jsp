@@ -72,8 +72,6 @@
         </form:form>
     </div>
 
-    <%--<div class="row"></div>--%>
-
     <div class ="col-sm-6 ">
         <table class="table table-striped col-sm-6 ">
         <tr>

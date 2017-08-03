@@ -23,18 +23,13 @@ public class AdminController {
     @Autowired
     private PartnerDAO partnerDAO;
     FxQuotesParser fxQuotesParser;
-//    ArrayList<User> listOfAllUsers;
-//    ArrayList<Partner>listOfAllPartners;
 
     public AdminController() {
         fxQuotesParser=new FxQuotesParser();
-//        listOfAllUsers=new ArrayList<>();
-//        listOfAllPartners=new ArrayList<>();
     }
 
     @RequestMapping(value="/admin", method = RequestMethod.GET)
     public String admin(Model model){
-//        model.addAttribute("listOfAllUsers",userDAO.getListOfAllUsers());
         Partner partner=new Partner();
         partner.setFirstName("adam");
         partner.setLastName("kowalski");
@@ -49,21 +44,6 @@ public class AdminController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        for(Partner value:listOfAllPartners){
-//            System.out.println("2 partner: "+value.getPartnerId()+" "+value.getLogin());
-//        }
-//        for(User value:listOfAllUsers){
-//            System.out.println("2 user: "+value.getUserId()+" "+value.getLogin());
-//        }
-//        User user = new User();
-//        user.setLogin("admin");
-//        user.setPassword("admin");
-//        listOfAllUsers=userDAO.getListOfAllUsers();
-//        listOfAllPartners=partnerDAO.getListOfAllPartners();
-//        model.addAttribute("user", user);
-//        model.addAttribute("listOfAllUsers",listOfAllUsers);
-//
-//        model.addAttribute("listOfAllPartners",listOfAllPartners);
         return "admin";
     }
 
@@ -71,10 +51,10 @@ public class AdminController {
     public String GoToAdmin(){
         return "redirect:admin";
     }
+
     @RequestMapping(value="/LogOut", method = RequestMethod.GET)
     public String LogOut(){
         return "redirect:login";
     }
-
 
 }

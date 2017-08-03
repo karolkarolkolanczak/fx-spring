@@ -109,5 +109,4 @@ public class PartnerDaoImpl implements PartnerDAO {
         entityManager.getTransaction().commit();
         return closedTradesTransactionslist;
     }
-
 }

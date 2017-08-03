@@ -8,11 +8,8 @@ import java.util.List;
 
 public class PartnerDataUtil {
 
-
     private int partnerId;
-
     private String closedTradesFrom;
-
     private String closedTradesTo;
 
     public PartnerDataUtil() {
@@ -22,13 +19,7 @@ public class PartnerDataUtil {
     ObjectPersist objectPersist =new ObjectPersist();
 
     public List<Partner> getListOfAllPartners(){
-
-//        listOfPartners.add(new Partner("ala","nowak","234@wp.pl"));
-//        listOfPartners.add(new Partner("zenek","wiaderek","345@wp.pl"));
-//        listOfPartners.add(new Partner("wojtek","ccc","456@wp.pl"));
-
         listOfPartners= objectPersist.getListOfAllPartners();
-
         return listOfPartners;
     }
 

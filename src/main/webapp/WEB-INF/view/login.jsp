@@ -34,6 +34,5 @@
         </div>
 
     </div>
-Login: ${user.login} Pass: ${user.password}
-
+<%--Login: ${user.login} Pass: ${user.password}--%>
 <%@include file="/WEB-INF/view/template/footer.jsp" %>
