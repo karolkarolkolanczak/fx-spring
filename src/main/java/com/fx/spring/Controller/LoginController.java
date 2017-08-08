@@ -25,7 +25,7 @@ import java.util.List;
  * Created by a on 17/07/2017.
  */
 @Controller
-//@RequestMapping("/login")
+
 public class LoginController {
     @Autowired
     private UserDAO userDAO;
@@ -34,18 +34,13 @@ public class LoginController {
     PartnerDaoImpl partnerDaoImpl;
     User user;
     List<ClosedTradesTransaction> closedTradesTransactionslist;
-//    ArrayList<User>listOfAllUsers;
-//    ArrayList<Partner>listOfAllPartners;
     Boolean isLogged;
 
-
     public LoginController() {
-//        listOfAllUsers=new ArrayList<>();
-//        listOfAllPartners=new ArrayList<>();
         isLogged=false;
         closedTradesTransactionslist=new ArrayList<>();
         partnerDaoImpl=new PartnerDaoImpl();
-init();
+        init();
     }
 
     @RequestMapping(value="/login", method = RequestMethod.GET)
@@ -53,10 +48,7 @@ init();
         User user = new User();
         user.setLogin("admin");
         user.setPassword("admin");
-//        listOfAllUsers=userDAO.getListOfAllUsers();
-//        listOfAllPartners=partnerDAO.getListOfAllPartners();
         model.addAttribute("user", user);
-//        init();
         return "login";
     }
 
@@ -64,13 +56,6 @@ init();
     String register( @ModelAttribute("user") User user,  BindingResult result) {
         if(isLogged(user).equals(true)){
             System.out.println("User '"+user.getLogin()+"': logged");
-//            for(Partner value:listOfAllPartners){
-//                System.out.println("1 partner: "+value.getPartnerId()+" "+value.getLogin());
-//            }
-//            for(User value:listOfAllUsers){
-//                System.out.println("1 user: "+value.getUserId()+" "+value.getLogin());
-//            }
-
             return "redirect:admin";
         }
         else{
@@ -95,12 +80,8 @@ init();
     }
 
     public void init(){
-//        List<String> listOfClosedTradesStrategiesResources=new ArrayList<>();
         List<ClosedTradesTransaction> listOfClosedTradesStrategies=new ArrayList<>();
-
         StrategyChooser strategyChooser=new StrategyChooser();
-
-//        listOfClosedTradesStrategiesResources=strategyChooser.getListOfClosedTradesStrategiesResources();
         listOfClosedTradesStrategies=strategyChooser.getListOfClosedTradesStrategies();
 
 
@@ -109,13 +90,10 @@ init();
                 try {
                     ClosedTradesTransactionCsvReader closedTradesTransactionCsvReader=new ClosedTradesTransactionCsvReader();
                     closedTradesTransactionslist=closedTradesTransactionCsvReader.getClosedTradesTransactionslist(listOfClosedTradesStrategies.get(i));
-
                     partnerDaoImpl.addclosedTradesTransactionslist(closedTradesTransactionslist);
-
                     for(ClosedTradesTransaction value: closedTradesTransactionslist){
                         System.out.println(value.getTransactionId()+" "+value.getSymbol()+" "+value.getProfit());
                     }
-
                 } catch (ParseException e) {
                     e.printStackTrace();
                 } catch (IOException e) {

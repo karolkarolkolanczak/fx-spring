@@ -4,17 +4,13 @@ import com.fx.spring.Entity.ClosedTradesTransaction;
 import com.fx.spring.Entity.Partner;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**

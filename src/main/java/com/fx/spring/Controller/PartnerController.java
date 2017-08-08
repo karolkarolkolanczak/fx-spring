@@ -1,28 +1,18 @@
 package com.fx.spring.Controller;
 
 import com.fx.spring.Dao.PartnerDAO;
-import com.fx.spring.Dao.PartnerDaoImpl;
 import com.fx.spring.Entity.ClosedTradesTransaction;
 import com.fx.spring.Entity.Partner;
-import com.fx.spring.Entity.User;
-import com.fx.spring.Utility.ClosedTradesTransactionCsvReader;
 import com.fx.spring.Utility.PartnerDataUtil;
 import com.fx.spring.Utility.StrategyChooser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
